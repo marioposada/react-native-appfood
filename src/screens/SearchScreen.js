@@ -1,24 +1,47 @@
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import React from 'react'
-import SearchBar from '../components/SearchBar'
+import SearchBar from "../components/SearchBar";
+import yelp from "../api/yelp";
 
 const SearchScreen = () => {
-    return(
-        <View style={styles.container}>
-            <SearchBar />
-            <Text>Pantalla de  busqueda</Text>
-        </View>
-    )
-}
+  const [term, setTerm] = useState("");
+  const [results, setResults] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
-const styles = StyleSheet.create ({
-    container: {
-        backgroundColor: '#fff',
-        flex: 1
-    } 
-    
-})
+  const searchApi = async (searchTerm) => {
+    try {
+      const response = await yelp.get("/search", {
+        params: {
+          limit: 50,
+          term: searchTerm,
+          location: "san jose",
+        },
+      });
+      setResults(response.data.businesses);
+    } catch (error) {
+      setErrorMessage("Something went wrong");
+    }
+  };
+useEffect(() => {
+  searchApi('pasta')
+}, [])
 
-export default  SearchScreen;
+  
+  return (
+    <View style={styles.container}>
+      <SearchBar term={term} onTermChange={setTerm} onTermSubmit={() => searchApi(term)} />
+      {errorMessage ? <Text>{errorMessage}</Text> : null}
+      <Text>We have found {results.length} results</Text>
+    </View>
+  );
+};
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff",
+    flex: 1,
+  },
+});
+
+export default SearchScreen;
