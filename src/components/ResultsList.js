@@ -5,7 +5,7 @@ import React from "react";
 
 const ResultsList = ({ title, results }) => {
   return (
-    <View>
+    <View style={style.container}>
       <Text style={style.title}>{title}</Text>
       <FlatList
         horizontal
@@ -23,7 +23,14 @@ const style = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
+    marginLeft: 15,
+    marginBottom: 5
   },
+  container: {
+    marginBottom: 10,
+
+
+  }
 });
 
 export default ResultsList;
