@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View , ScrollView} from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 import ResultsList from "../components/ResultsList";
 import SearchBar from "../components/SearchBar";
 import useResults from "../hooks/useResults";
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const [term, setTerm] = useState("");
   const [searchApi, results, errorMessage] = useResults();
 
@@ -24,11 +24,22 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>We have found {results.length} results</Text>
       <ScrollView>
-      <ResultsList results={filterResultByprice("$")} title="Const Effective" />
-      <ResultsList results={filterResultByprice("$$")} title="Big pricier" />
-      <ResultsList results={filterResultByprice("$$$")} title="Big spender" />
+        <ResultsList
+          results={filterResultByprice("$")}
+          title="Const Effective"
+          navigation={navigation}
+        />
+        <ResultsList
+          results={filterResultByprice("$$")}
+          title="Big pricier"
+          navigation={navigation}
+        />
+        <ResultsList
+          results={filterResultByprice("$$$")}
+          title="Big spender"
+          navigation={navigation}
+        />
       </ScrollView>
     </View>
   );

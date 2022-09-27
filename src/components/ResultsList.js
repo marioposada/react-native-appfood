@@ -3,7 +3,7 @@ import ResultsDetail from "./ResultsDetail";
 
 import React from "react";
 
-const ResultsList = ({ title, results }) => {
+const ResultsList = ({ title, results ,navigation}) => {
   return (
     <View style={style.container}>
       <Text style={style.title}>{title}</Text>
