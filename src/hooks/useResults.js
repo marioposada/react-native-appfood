@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import yelp from "../api/yelp";
 
 export default () => {
-    const [results, setResults] = useState([]);
+  const [results, setResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
   const searchApi = async (searchTerm) => {
@@ -20,10 +20,9 @@ export default () => {
       setErrorMessage("Something went wrong");
     }
   };
-useEffect(() => {
-  searchApi('pasta')
-}, [])
+  useEffect(() => {
+    searchApi("pasta");
+  }, []);
 
-return [searchApi,results,errorMessage]
-
-}
+  return [searchApi, results, errorMessage];
+};
