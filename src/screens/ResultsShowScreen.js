@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar'
-import React from 'react'
-import {View, StyleSheet, Text}  from 'react-native'
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, Text, FlatList, Image } from "react-native";
+import yelp from "../api/yelp";
 
-const ResultsShowScreen = () => {
-    return (
-        <View>
-            <Text>
+const ResultsShowScreen = ({ navigation }) => {
+  const [result, setResult] = useState(null);
+  const id = navigation.getParam("id");
 
-            </Text>
-        </View>
-    )
-}
+  const getResult = async (id) => {
+    const response = await yelp.get(`/${id}`);
+    setResult(response.data);
+  };
 
-const style = StyleSheet.create ({
+  useEffect(() => {
+    getResult(id);
+  }, []);
 
-})
+  if (!result) {
+    return null;
+  }
+
+  return (
+    <View>
+      <Text>{result.name}</Text>
+      <FlatList
+        data={result.photos}
+        keyExtractor={(photo) => photo}
+        renderItem={({ item }) => {
+          return <Image style={style.image} source={{ uri: item }} />;
+        }}
+      />
+    </View>
+  );
+};
+
+const style = StyleSheet.create({
+  image: {
+    height: 200,
+    width: 200,
+  },
+});
 
 export default ResultsShowScreen;
-
