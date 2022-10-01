@@ -20,3 +20,7 @@ $ npm i react-navigation axios react-navigation-stack
 $ npm start
 $ yarn start
 ```
+# Screenshot
+!["React Native Appfood"](https://github.com/marioposada/assets/blob/main/appfood/image1.png)
+
+!["React Native Appfood"](https://github.com/marioposada/assets/blob/main/appfood/image2.png)
