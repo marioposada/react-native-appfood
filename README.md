@@ -6,7 +6,7 @@ Appfood is an App coded in React Native to search for restaurants using the Yelp
 
 ## Build Setup
 
-``` bash
+```yml
 # clone project
 $ git clone git@github.com:marioposada/react-native-appfood.git
 
