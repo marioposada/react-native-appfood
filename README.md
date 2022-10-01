@@ -2,5 +2,5 @@
 <h1 align="center">  React Native App Food  </h1>
 
 # Description
-Appfood is an app coded in React Native to search for restaurants using the Yelp API.
+Appfood is an App coded in React Native to search for restaurants using the Yelp API.
 
