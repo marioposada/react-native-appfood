@@ -21,7 +21,7 @@ $ npm start
 $ yarn start
 ```
 # Screenshot
-<h2 align="center"> <img width="500" src="[https://github.com/marioposada/assets/blob/main/appfood/SD3ANUUAV5FY3GKCXIQ2HUKPC4.jpeg](https://github.com/marioposada/assets/blob/main/appfood/image1.png)" /> </h2>
+<h2 align="center"> <img width="500" src="https://github.com/marioposada/assets/blob/main/appfood/image1.png" /> </h2>
 
 
 !["React Native Appfood"](https://github.com/marioposada/assets/blob/main/appfood/image2.png)
