@@ -23,5 +23,7 @@ $ yarn start
 # Screenshot
 <h2 align="center"> <img width="300" src="https://github.com/marioposada/assets/blob/main/appfood/image1.png" /> <img width="300" src="https://github.com/marioposada/assets/blob/main/appfood/image2.png" /></h2>
 
+# Developed by
 
+## Mario Posada
 
